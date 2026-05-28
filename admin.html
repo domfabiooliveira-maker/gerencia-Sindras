@@ -142,7 +142,7 @@ Salvar Arquivo
 const form = document.getElementById('arquivoForm');
 const tabela = document.getElementById('tabelaArquivos');
 
-let arquivos = JSON.parse(localStorage.getItem('arquivos')) || [];
+let arquivos = JSON.parse(localStorage.getItem('oficiosEnviados')) || [];
 
 function renderizarTabela(){
 
@@ -202,7 +202,7 @@ form.addEventListener('submit', function(e){
 
     });
 
-    localStorage.setItem('arquivos', JSON.stringify(arquivos));
+    localStorage.setItem('oficiosEnviados', JSON.stringify(arquivos));
 
     renderizarTabela();
 
@@ -216,7 +216,7 @@ function excluir(index){
 
         arquivos.splice(index,1);
 
-        localStorage.setItem('arquivos', JSON.stringify(arquivos));
+        localStorage.setItem('oficiosEnviados', JSON.stringify(arquivos));
 
         renderizarTabela();
 
@@ -234,7 +234,7 @@ function editar(index){
 
     arquivos.splice(index,1);
 
-    localStorage.setItem('arquivos', JSON.stringify(arquivos));
+    localStorage.setItem('oficiosEnviados', JSON.stringify(arquivos));
 
     renderizarTabela();
 

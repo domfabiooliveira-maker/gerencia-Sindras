@@ -342,30 +342,7 @@
                                     </tr>
                                 </thead>
 
-                                <tbody>
-
-                                    <tr>
-                                        <td>001/2026</td>
-                                        <td>Prefeitura Municipal</td>
-                                        <td>Solicitação de Certidão</td>
-                                        <td>
-                                            <button class="btn-download">
-                                                <i class="bi bi-download"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>002/2026</td>
-                                        <td>Secretaria de Saúde</td>
-                                        <td>Pedido de Insumos</td>
-                                        <td>
-                                            <button class="btn-download">
-                                                <i class="bi bi-download"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-
+                                <tbody id="tabelaEnviados">
                                 </tbody>
 
                             </table>
@@ -657,5 +634,47 @@
     });
 </script>
 
+
+<script>
+
+const enviados = JSON.parse(localStorage.getItem('oficiosEnviados')) || [];
+
+const tabelaEnviados = document.getElementById('tabelaEnviados');
+
+if(tabelaEnviados){
+
+    enviados.forEach(item => {
+
+        tabelaEnviados.innerHTML += `
+
+        <tr>
+
+            <td>${item.numero}</td>
+
+            <td>${item.destino}</td>
+
+            <td>${item.assunto}</td>
+
+            <td>
+
+                <button class="btn-download">
+
+                    <i class="bi bi-download"></i>
+
+                </button>
+
+            </td>
+
+        </tr>
+
+        `;
+
+    });
+
+}
+
+</script>
+
 </body>
+
 </html>
